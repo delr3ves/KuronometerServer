@@ -21,3 +21,8 @@ releaseProcess := Seq[ReleaseStep](
 )
 
 addCommandAlias("test-all", ";test ;it:test")
+
+import org.scoverage.coveralls.Imports.CoverallsKeys._
+import scala.util.Properties.envOrNone
+
+coverallsToken := envOrNone("COVERALLS_TOKEN")

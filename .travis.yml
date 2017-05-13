@@ -10,10 +10,11 @@ services:
   - docker
 
 script:
-    - sbt ++$TRAVIS_SCALA_VERSION clean coverage test coverageReport assembly
+    - sbt ++$TRAVIS_SCALA_VERSION clean coverage test-all coverageReport coverageAggregate coverageOff assembly
     - docker build -t delr3ves/$PROJECT_NAME:$TRAVIS_BUILD_NUMBER .
 
 after_success:
+  - sbt coveralls
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
     docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
     docker push delr3ves/$PROJECT_NAME:$TRAVIS_BUILD_NUMBER;
