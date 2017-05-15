@@ -1,28 +1,29 @@
 package com.emaginalabs.kuronometer.server.resources
 
+import com.emaginalabs.kuronometer.core.model.BuildExecutionReport
 import com.twitter.finagle.http.Request
 import com.twitter.finatra.http.Controller
 
-class MeasurementController extends Controller {
+class BuildExecutionReportController extends Controller {
 
-  get("/measure") { request: Request =>
+  get("/buildExecution") { request: Request =>
     "<h1>I'm Kuronometer</h1>"
   }
 
-  post("/measure") { request: Request =>
-    ""
+  post("/buildExecution") { report: BuildExecutionReport =>
+    report
   }
 }
 
-trait MeasurementeControllerComponent {
+trait BuildExecutionReportControllerComponent {
 
-  def measurementController: MeasurementController
+  def buildExecutionController: BuildExecutionReportController
 }
 
-object MeasurementeControllerComponent {
+object BuildExecutionReportControllerComponent {
 
-  trait Default extends MeasurementeControllerComponent {
-    override lazy val measurementController: MeasurementController = new MeasurementController
+  trait Default extends BuildExecutionReportControllerComponent {
+    override lazy val buildExecutionController: BuildExecutionReportController = new BuildExecutionReportController
   }
 
 }

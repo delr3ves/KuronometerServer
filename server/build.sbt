@@ -1,7 +1,7 @@
 name := "kuronometer-server"
-
 libraryDependencies ++= Seq(
   "com.twitter" %% "finatra-http" % Dependencies.FinatraVersion,
+  "com.twitter" % "finatra-jackson_2.12" % Dependencies.FinatraVersion,
   "ch.qos.logback" % "logback-classic" % Dependencies.LogbackVersion
 
 )
