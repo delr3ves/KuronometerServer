@@ -6,7 +6,7 @@ object Dependencies {
   val LogbackVersion = "1.2.2"
 
   val Test = Seq(
-    "org.scalatest" %% "scalatest" % "3.0.3" % "test,it",
+    "org.scalatest"  %% "scalatest"  % "3.0.3"  % "test,it",
     "org.scalacheck" %% "scalacheck" % "1.13.5" % "test,it"
   )
 }

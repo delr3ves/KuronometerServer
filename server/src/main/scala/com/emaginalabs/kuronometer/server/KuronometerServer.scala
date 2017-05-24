@@ -5,14 +5,12 @@ import com.emaginalabs.kuronometer.server.resources.BuildExecutionReportControll
 import com.twitter.finatra.http.HttpServer
 import com.twitter.finatra.http.routing.HttpRouter
 
-class KuronometerServer extends HttpServer
-  with BuildExecutionReportControllerComponent.Default {
+class KuronometerServer extends HttpServer with BuildExecutionReportControllerComponent.Default {
 
   override val defaultFinatraHttpPort: String = ":8080"
 
   override def jacksonModule = KuronometerJacksonModule
 
-  override protected def configureHttp(router: HttpRouter): Unit = {
+  override protected def configureHttp(router: HttpRouter): Unit =
     router.add(buildExecutionController)
-  }
 }

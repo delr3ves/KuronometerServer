@@ -1,5 +1,3 @@
 package com.emaginalabs.kuronometer.server
 
-object Application extends KuronometerServer {
-
-}
+object Application extends KuronometerServer {}

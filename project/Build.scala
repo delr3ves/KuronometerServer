@@ -24,6 +24,6 @@ object Build extends sbt.Build {
     server
   )
 
-  lazy val core = subModule("core")
+  lazy val core   = subModule("core")
   lazy val server = subModuleWithAssembly("server").dependsOn(core)
 }

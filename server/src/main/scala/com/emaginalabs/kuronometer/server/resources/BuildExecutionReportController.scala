@@ -23,7 +23,8 @@ trait BuildExecutionReportControllerComponent {
 object BuildExecutionReportControllerComponent {
 
   trait Default extends BuildExecutionReportControllerComponent {
-    override lazy val buildExecutionController: BuildExecutionReportController = new BuildExecutionReportController
+    override lazy val buildExecutionController: BuildExecutionReportController =
+      new BuildExecutionReportController
   }
 
 }
