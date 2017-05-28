@@ -1,30 +1,21 @@
 package com.emaginalabs.kuronometer.server.resources
 
+import javax.inject.Inject
+
 import com.emaginalabs.kuronometer.core.model.BuildExecutionReport
-import com.twitter.finagle.http.Request
-import com.twitter.finatra.http.Controller
+import com.jakehschwartz.finatra.swagger.SwaggerController
+import io.swagger.models.Swagger
 
-class BuildExecutionReportController extends Controller {
+class BuildExecutionReportController @Inject()(s: Swagger) extends SwaggerController {
 
-  get("/buildExecution") { request: Request =>
-    "<h1>I'm Kuronometer</h1>"
-  }
+  implicit protected val swagger = s
 
-  post("/buildExecution") { report: BuildExecutionReport =>
+  postWithDoc("/buildExecution") { o =>
+    o.summary("Stores the build execution report")
+      .tag("BuidExecutionReport")
+      .bodyParam[BuildExecutionReport]("The report to be stored")
+      .responseWith[BuildExecutionReport](200, "The stored report")
+  } { report: BuildExecutionReport =>
     report
   }
-}
-
-trait BuildExecutionReportControllerComponent {
-
-  def buildExecutionController: BuildExecutionReportController
-}
-
-object BuildExecutionReportControllerComponent {
-
-  trait Default extends BuildExecutionReportControllerComponent {
-    override lazy val buildExecutionController: BuildExecutionReportController =
-      new BuildExecutionReportController
-  }
-
 }
