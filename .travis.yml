@@ -1,0 +1,22 @@
+language: scala
+scala:
+   - 2.12.2
+jdk:
+  - oraclejdk8
+
+env:
+  PROJECT_NAME: kuronometer-server
+services:
+  - docker
+
+script:
+    - sbt ++$TRAVIS_SCALA_VERSION clean scalafmtTest coverage test-all coverageReport coverageAggregate coverageOff assembly
+    - docker build -t delr3ves/$PROJECT_NAME:$TRAVIS_BUILD_NUMBER .
+
+after_success:
+  - sbt coveralls
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then
+    docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+    docker push delr3ves/$PROJECT_NAME:$TRAVIS_BUILD_NUMBER;
+    docker push delr3ves/$PROJECT_NAME:latest;
+    fi
