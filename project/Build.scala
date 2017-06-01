@@ -10,7 +10,11 @@ object Build extends sbt.Build {
       .settings(Defaults.itSettings: _*)
 
   def subModule(id: String): Project =
-    baseModule(id).disablePlugins(sbtassembly.AssemblyPlugin)
+    baseModule(id)
+      .settings(
+        libraryDependencies ++= Dependencies.Test
+      )
+      .disablePlugins(sbtassembly.AssemblyPlugin)
 
   def subModuleWithAssembly(id: String): Project =
     baseModule(id).settings(

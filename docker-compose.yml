@@ -1,0 +1,44 @@
+version: '2'
+
+services:
+  web:
+    hostname: chicfy
+    image: delr3ves/kuronometer-server:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8080
+    expose:
+      - 8080
+    depends_on:
+      - elastic
+    networks:
+      - kuronet
+
+  elastic:
+    image: docker.elastic.co/elasticsearch/elasticsearch:5.4.0
+    environment:
+      - cluster.name=kuronomter-node
+      - node.name=kuronometer-cluster
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    mem_limit: 1g
+    volumes:
+      - kuronometer-es-data:/usr/share/elasticsearch/data
+    expose:
+      - 9200
+    ports:
+      - 9200:9200
+    networks:
+      - kuronet
+
+volumes:
+  kuronometer-es-data:
+
+networks:
+  kuronet:

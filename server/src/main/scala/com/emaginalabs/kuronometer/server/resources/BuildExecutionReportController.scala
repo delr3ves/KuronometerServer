@@ -3,10 +3,12 @@ package com.emaginalabs.kuronometer.server.resources
 import javax.inject.Inject
 
 import com.emaginalabs.kuronometer.core.model.BuildExecutionReport
+import com.emaginalabs.kuronometer.core.service.BuildExecutionReportCreator
 import com.jakehschwartz.finatra.swagger.SwaggerController
 import io.swagger.models.Swagger
 
-class BuildExecutionReportController @Inject()(s: Swagger) extends SwaggerController {
+class BuildExecutionReportController @Inject()(s: Swagger, reportCreator: BuildExecutionReportCreator)
+  extends SwaggerController {
 
   implicit protected val swagger = s
 
@@ -16,6 +18,6 @@ class BuildExecutionReportController @Inject()(s: Swagger) extends SwaggerContro
       .bodyParam[BuildExecutionReport]("The report to be stored")
       .responseWith[BuildExecutionReport](200, "The stored report")
   } { report: BuildExecutionReport =>
-    report
+    reportCreator(report)
   }
 }

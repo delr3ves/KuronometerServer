@@ -10,9 +10,11 @@ object KuronometerSwaggerModule extends SwaggerModule {
 
   @Provides
   @Singleton
-  def provideSwagger: Swagger = new Swagger().info(new Info()
-    .description("The Kuronometer Server API.")
-    .version("1.0.0")
-    .title("Kuronometer Server API"))
+  def provideSwagger: Swagger =
+    new Swagger().info(
+      new Info()
+        .description("The Kuronometer Server API.")
+        .version("1.0.0")
+        .title("Kuronometer Server API"))
 
 }
