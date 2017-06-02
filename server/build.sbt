@@ -4,7 +4,8 @@ libraryDependencies ++= Seq(
   "com.twitter"       %% "finatra-http"        % Dependencies.FinatraVersion,
   "com.twitter"       %% "finatra-jackson"     % Dependencies.FinatraVersion,
   "ch.qos.logback"    % "logback-classic"      % Dependencies.LogbackVersion,
-  "com.jakehschwartz" % "finatra-swagger_2.12" % "2.10.0"
+  "com.jakehschwartz" % "finatra-swagger_2.12" % "2.10.0",
+  "com.twitter" %% "bijection-util" % "0.8.1"
 )
 
 mainClass in assembly := Some("com.emaginalabs.kuronometer.server.Application")

@@ -13,7 +13,7 @@ services:
       ELASTIC_PASS: "changeme"
 
     ports:
-      - 8080
+      - 8080:8080
     expose:
       - 8080
     depends_on:
