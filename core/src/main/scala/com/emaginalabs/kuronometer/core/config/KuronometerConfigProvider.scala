@@ -5,7 +5,7 @@ import scala.util.Properties.envOrElse
 class KuronometerConfigProvider {
   def apply(): KuronometerConfig = {
     KuronometerConfig(
-      esUrl = envOrElse("ELASTIC_URL", "http://elastic:9200/"),
+      esUrl = envOrElse("ELASTIC_URL", "http://localhost:9200/"),
       esUser = envOrElse("ELASTIC_USER", "elastic"),
       esPass = envOrElse("ELASTIC_PASS", "changeme")
     )

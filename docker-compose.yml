@@ -7,6 +7,11 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    environment:
+      ELASTIC_URL: "http://elastic:9200/"
+      ELASTIC_USER: "elastic"
+      ELASTIC_PASS: "changeme"
+
     ports:
       - 8080
     expose:
