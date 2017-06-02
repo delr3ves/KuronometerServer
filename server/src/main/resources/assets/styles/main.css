@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css?family=Karla');
+
+body {
+    background-color: #26343d;
+    padding: 0;
+    margin: 0;
+    font-family: 'Karla', sans-serif;
+}
+
+a {
+    color: #fc3380;
+    transition: all .5s;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    color: #da1169;
+    text-decoration: none;
+    font-weight: lighter;
+}
+
+a:active {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.main-title {
+    position: relative;
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 2.5em;
+}
+.counters {
+    width: 100%;
+}
+
+.middle {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.counter {
+    position: relative;
+    margin: auto;
+    font-size: 12em;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.time-unit {
+    color: #fc3380;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: #FFFFFF;
+    box-shadow: inset 0px 2px 10px -1px #26343d, inset -3px 18px 15px -23px #CCC;
+}
+.links {
+    float: right;
+    margin: -15px 15px 15px 5px;
+}
+.links li {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+a.hosted-container {
+    text-decoration: none;
+}
+
+.powered-by {
+    height: 32px;
+    width: 114px;
+    background: url(/assets/img/karumi.png);
+    background-size: cover;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.github {
+    height: 25px;
+    width: 25px;
+    background: url(/assets/img/github-logo.png);
+    background-size: cover;
+    display: inline-block;
+    position: relative;
+    top: 20px;
+}

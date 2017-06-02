@@ -1,27 +1,27 @@
+<!DOCTYPE HTML>
+
 <html>
-
     <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <title>Kuronometer</title>
-        <style>
-            body {
-                background-color: #26343d;
-            }
-            .counter {
-                font-size: 10em;
-                color: #FFFFFF;
-            }
-            .centered {
-                position: fixed;
-                top: 50%;
-                left: 50%;
-                /* bring your own prefixes */
-                transform: translate(-100%, -100%);
-            }
-
-        </style>
+        <link rel="stylesheet" href="/assets/styles/main.css">
     </head>
+
     <body>
-        <h1 class="counter centered">{{timeCompiling}}s</h1>
+        <header>
+            <h1 class="main-title"> Let's measure how long developers around the world are compiling software.</h1>
+        </header>
+        <section class="counters middle">
+            <p class="counter">{{timeCompiling}}<span class="time-unit">s</span></p>
+        </section>
+
+        <section class="footer">
+            <ul class="links">
+                <li><a class="github-project" href="https://github.com/pedrovgs/Kuronometer">Kuronometer Plugin <p class="github"></p></a></li>
+                <li><a class="github-project" href="https://github.com/delr3ves/KuronometerServer">Kuronometer Server <p class="github"></p></a></li>
+                <li class="hosted-container"><a href="http://karumi.com">hosted By <span class="powered-by"></span></a></li>
+            </ul>
+        </section>
     </body>
 </html>
 
