@@ -21,5 +21,6 @@ assemblyMergeStrategy in assembly := {
   case PathList("org", "apache", "commons", "logging", _ *) => MergeStrategy.first
   case PathList("META-INF", "io.netty.versions.properties") => MergeStrategy.first
   case PathList("META-INF", "MANIFEST.MF")                  => MergeStrategy.discard
+  case PathList("META-INF", "native", "libnetty-transport-native-epoll.so") => MergeStrategy.first
   case other                                                => (assemblyMergeStrategy in assembly).value(other)
 }
